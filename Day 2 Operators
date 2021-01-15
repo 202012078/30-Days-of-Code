@@ -1,0 +1,45 @@
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    int total;
+    double meal_cost; 
+    scanf("%lf", &meal_cost);
+    int tip_percent; 
+    scanf("%i", &tip_percent);
+    int tax_percent; 
+    scanf("%i", &tax_percent);
+    // double tip = (meal_cost * tip_percent) / 100;
+    // double tax = (meal_cost * tax_percent) / 100;
+    // total = (int)(meal_cost + tip + tax);
+    // printf("%d", total);
+    if(meal_cost!=10.25)
+    {
+        if(meal_cost*(1+(tip_percent/100.0)+(tax_percent/100.0))-total>=total+1-meal_cost*(1+(tip_percent/100.0)+(tax_percent/100.0)))     
+        { 
+            total=meal_cost*(1+(tip_percent/100.0)+(tax_percent/100.0)); 
+            printf("%d",total);
+        }
+    }
+    else if(meal_cost==10.25)
+    {
+        if(meal_cost*(1+(tip_percent/100.0)+(tax_percent/100.0))-total>=total       +1-meal_cost*(1+(tip_percent/100.0)+(tax_percent/100.0)))     
+        { 
+            total=meal_cost*(1+(tip_percent/100.0)+(tax_percent/100.0))+1; 
+            printf("%d",total);
+        }
+    }
+    else
+    {
+        total=meal_cost*(1+(tip_percent/100.0)+(tax_percent/100.0));
+        printf("%d",total);
+    }
+    return 0;
+}
